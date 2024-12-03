@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Vegan Compass</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .title-font {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            color: #2E7D32;  /* A nice forest green */
+            letter-spacing: 1px;
+        }
+        .subtitle-text {
+            font-family: 'Quicksand', sans-serif;
+            color: #558B2F;  /* A lighter green */
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <header class="text-center mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="invisible"><!-- Placeholder for flex spacing --></div>
+                <h1 class="display-4 mb-3 title-font">The Vegan Compass</h1>
+                <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#requestModal">
+                    <i class="bi bi-plus-circle me-2"></i>Request Restaurant
+                </button>
+            </div>
+            <div class="d-flex justify-content-center align-items-center gap-2">
+                <span class="subtitle-text">Find me vegan options in:</span>
+                <select id="townSelect" class="form-select subtitle-text" style="max-width: 200px;">
+                    <option value="owen-sound">Owen Sound</option>
+                    <option value="collingwood">Collingwood</option>
+                </select>
+            </div>
+        </header>
+        
+        <main class="row g-4">
+            <!-- Restaurant cards will be dynamically inserted here -->
+        </main>
+    </div>
+
+    <!-- Request Restaurant Modal -->
+    <div class="modal fade" id="requestModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title subtitle-text">Request a Restaurant</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form action="https://formspree.io/f/myzyoejo" method="POST">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="restaurantName" class="form-label">Restaurant Name*</label>
+                            <input type="text" class="form-control" id="restaurantName" name="Restaurant Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="restaurantTown" class="form-label">Town*</label>
+                            <select class="form-select" id="restaurantTown" name="Town" required>
+                                <option value="">Select a town</option>
+                                <option value="Owen Sound">Owen Sound</option>
+                                <option value="Collingwood">Collingwood</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="veganOptions" class="form-label">Vegan Options Available*</label>
+                            <textarea class="form-control" id="veganOptions" name="Vegan Options" rows="2" required 
+                                placeholder="What vegan options have you tried here?"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="submitterEmail" class="form-label">Your Email (optional)</label>
+                            <input type="email" class="form-control" id="submitterEmail" name="email"
+                                placeholder="In case we need more information">
+                        </div>
+                        <small class="text-muted">* Required fields</small>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Submit Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# No external dependencies required
+# This script uses only Python standard library modules:
+# - csv
+# - json
+# - collections
